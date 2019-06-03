@@ -96,3 +96,5 @@ require (
 	k8s.io/klog v0.1.0
 	sigs.k8s.io/yaml v1.1.0
 )
+
+replace github.com/drone/go-scm => ../go-scm

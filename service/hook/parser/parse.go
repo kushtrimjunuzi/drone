@@ -238,9 +238,10 @@ func (p *parser) Parse(req *http.Request, secretFunc func(string) string) (*core
 		// Please contact Bitbucket Support if you would like to
 		// see this feature enabled:
 		// https://bitbucket.org/site/master/issues/5814/repository-refs-for-pull-requests
-		if p.client.Driver == scm.DriverBitbucket {
-			return nil, nil, nil
-		}
+		// if p.client.Driver == scm.DriverBitbucket {
+		// 	return nil, nil, nil
+		// }
+		// HACK: instead of cloning pull request, clone master and in custom pipeline merge pull request
 		hook = &core.Hook{
 			Trigger:      core.TriggerHook, // core.TriggerHook,
 			Event:        core.EventPullRequest,
